@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <style>
+        /* Reset some default styles and apply basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Crop Recommendation Content styles */
+        .crop-recommendation-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .crop-recommendation-content h1 {
+            color: #0077b6;
+        }
+
+        /* Form field styles */
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-field select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Submit button styles */
+        .submit-button {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer-menu li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Social media icons */
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section for Crop Recommendation Page -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Agriculture Toolbox Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="C:/Users/pbhan/OneDrive/Desktop/shi/interface1.html">Home</a></li>
+                <li><a href="#">Crop Recommendation</a></li>
+                <li><a href="#">Crop Yield Prediction</a></li>
+                <li><a href="#">Weather Monitoring</a></li>
+                <li><a href="#">Pesticides & Fertilizers</a></li>
+                <li><a href="#">Marketing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Crop Recommendation Content -->
+    <section class="crop-recommendation-content">
+        <h1>Crop Recommendation</h1>
+        <form action="recommendation.php" method="post">
+            <!-- Region Field -->
+            <div class="form-field">
+                <label for="region">Region:</label>
+                <select id="region" name="region">
+                    <option value="guntur">Guntur</option>
+                </select>
+            </div>
+
+            <!-- Season Field -->
+            <div class="form-field">
+                <label for="season">Season:</label>
+                <select id="season" name="season">
+                    <option value="rabi">Rabi</option>
+                    <option value="kharif">Kharif</option>
+                </select>
+            </div>
+
+            <!-- Soil Type Field -->
+            <div class="form-field">
+                <label for="soil-type">Soil Type:</label>
+                <select id="soil-type" name="soil-type">
+                    <option value="clayey-loam">Clayey Loam</option>
+                    <option value="loamy-sand">Loamy Sand</option>
+                    <option value="clay-loam">Clay Loam</option>
+                    <option value="sandy-loam">Sandy Loam</option>
+                </select>
+            </div>
+
+            <!-- Open Local File Button as the Submit Button -->
+            <button type="button" class="submit-button" id="submit-button">Submit</button>
+        </form>
+        
+        <!-- Display crop recommendations here -->
+    </section>
+
+    <!-- Footer Section for Crop Recommendation Page -->
+    <footer>
+        <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+        <div class="social-icons">
+            <!-- Add social media icons and links here -->
+        </div>
+    </footer>
+
+    <!-- JavaScript code to open a local file when clicking the button -->
+    <script>
+        document.getElementById("submit-button").addEventListener("click", function() {
+            var filePath = "file:///C:/Users/pbhan/OneDrive/Desktop/shi/interface%203.html";
+            window.location.href = filePath;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Apply a background color and text color to the body */
+        body {
+            background-color: #f7f7f7;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the header and navigation */
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            width: 100px; /* Adjust the width as needed */
+        }
+
+        .menu {
+            list-style-type: none;
+        }
+
+        .menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Style the hero section */
+        .hero {
+            background-image: url('hero-background.jpg'); /* Add your hero image */
+            background-size: cover;
+            text-align: center;
+            padding: 100px 0;
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        /* Style the services buttons */
+        .services-buttons {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .services-buttons button {
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        /* Style the Plant Disease Analysis section */
+        .plant-disease-analysis {
+            background-color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            color: #333;
+        }
+
+        .plant-disease-analysis h2 {
+            font-size: 36px;
+        }
+
+        .plant-disease-analysis p {
+            font-size: 18px;
+        }
+
+        .plant-disease-analysis button {
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-menu {
+            list-style-type: none;
+        }
+
+        .footer-menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer-menu li a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+    <title>Agriculture Toolbox</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Agriculture Toolbox Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="C:/Users/pbhan/OneDrive/Desktop/shi/interface1.html">Home</a></li>
+                <li><a href="#">Crop Recommendation</a></li>
+                <li><a href="#">Crop Yield Prediction</a></li>
+                <li><a href="#">Weather Monitoring</a></li>
+                <li><a href="#">Pesticides & Fertilizers</a></li>
+                <li><a href="#">Marketing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Agriculture Toolbox</h1>
+        <p>Your Guide to Successful Farming</p>
+    </section>
+
+    <!-- Services Buttons Section -->
+    <section class="services-buttons">
+        <button id="crop-recommendation-button">Crop Recommendation</button>
+        <button id ="crop-yeild-prediction">Crop Yield Prediction</button>
+        <button>Weather Monitoring</button>
+        <button>Pesticides & Fertilizers</button>
+        <button>Marketing</button>
+    </section>
+
+    <!-- Plant Disease Analysis Section -->
+    <section class="plant-disease-analysis">
+        <h2>Plant Disease Analysis</h2>
+        <p>Diagnose and Prevent Crop Diseases</p>
+        <button id="plant-disease-analysis-button">Learn More</button>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+        <div class="social-icons">
+            <!-- Add social media icons and links here -->
+        </div>
+    </footer>
+
+    <!-- JavaScript to navigate to the Crop Recommendation Page -->
+    <script>
+        document.getElementById('crop-recommendation-button').addEventListener('click', function() {
+	
+	var filepath="file:///C:/Users/pbhan/OneDrive/Desktop/shi/interface%202.html"
+            window.location.href = filepath;
+        });
+    </script>
+
+
+
+ <script>
+        document.getElementById('crop-yeild-prediction').addEventListener('click', function() {
+	
+	var filepath="file:///C:/Users/pbhan/OneDrive/Desktop/shi/interface%204.html?state=Andhra+Pradesh&crop=paddy"
+            window.location.href = filepath;
+        });
+    </script>
+
+
+
+
+
+    <!-- JavaScript to navigate to the Plant Disease Analysis Page -->
+    <script>
+        document.getElementById('plant-disease-analysis-button').addEventListener('click', function() {
+            window.location.href = 'plant_disease_analysis.html';
+        });
+    </script>
+</body>
+</html>

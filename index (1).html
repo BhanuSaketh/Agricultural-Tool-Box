@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State wide crop production</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+	 body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        #table-container {
+            display: none;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+	 footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer-menu li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Social media icons */
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<!-- Header Section -->
+    <header style="background-color: #0077b6; color: #fff; padding: 20px 0; text-align: center;">
+    <div class="logo">
+        <img src="logo.png" alt="Agriculture Toolbox Logo" style="width: 150px; height: auto;">
+    </div>
+    <nav>
+        <ul class="menu" style="list-style: none; padding: 0;">
+            <li style="display: inline; margin-right: 20px;"><a href="file:///C:/Users/pbhan/OneDrive/Desktop/shi/interface1.html" style="text-decoration: none; color: #fff;">Home</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="#" style="text-decoration: none; color: #fff;">Crop Recommendation</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="#" style="text-decoration: none; color: #fff;">Crop Yield Prediction</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="#" style="text-decoration: none; color: #fff;">Weather Monitoring</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="#" style="text-decoration: none; color: #fff;">Pesticides & Fertilizers</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="#" style="text-decoration: none; color: #fff;">Marketing</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <div class="container">
+        <h2>State wide Crop Production</h2>
+        <form id="selection-form">
+            <label for="state">Select a State:</label>
+            <select id="state" name="state">
+                <!-- Options for states -->
+            </select>
+            <label for="crop">Select a Crop:</label>
+            <select id="crop" name="crop">
+                <option value="paddy">Paddy</option>
+                <option value="cotton">Cotton</option>
+                <!-- Add options for other crops here -->
+            </select>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S. No.</th>
+                        <th>STATE/UT</th>
+                        <th>KMS 2015-16</th>
+                        <th>KMS 2016-17</th>
+                        <th>KMS 2017-18</th>
+                        <th>KMS 2018-19</th>
+                        <th>Predicted Data of 2019-20</th> <!-- Updated column title -->
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Table data will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('selection-form');
+        const tableContainer = document.getElementById('table-container');
+        const tableBody = document.getElementById('table-body');
+        const stateSelect = document.getElementById('state');
+
+        // Define your data here as an array of objects with state, crop, and corresponding data
+        const data = [
+            {
+                state: 'ANDHRA PRADESH',
+                crop: 'paddy',
+                actualData: {
+                    'KMS 2015-16': 74.89,
+                    'KMS 2016-17': 74.52,
+                    'KMS 2017-18': 81.66,
+                    'KMS 2018-19': 82.35
+                },
+                predictedData: 84.836667
+            },
+            {
+                state: 'ANDHRA PRADESH',
+                crop: 'cotton',
+                actualData: {
+                    'KMS 2015-16': 50.0,
+                    'KMS 2016-17': 52.0,
+                    'KMS 2017-18': 55.0,
+                    'KMS 2018-19': 57.0
+                },
+                predictedData: 55.543333
+            },
+            // Add data for other states and crops here
+        ];
+
+        // Create an array of all states
+        const allStates = [...new Set(data.map(entry => entry.state))];
+
+        // Populate the state dropdown with all states
+        allStates.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state;
+            option.textContent = state;
+            stateSelect.appendChild(option);
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const state = document.getElementById('state').value;
+            const crop = document.getElementById('crop').value;
+            
+            // Find the data entries for the selected state and crop
+            const selectedData = data.filter(entry => entry.state === state && entry.crop === crop);
+
+            if (selectedData.length > 0) {
+                // Build the HTML table rows with the data
+                let tableRows = '';
+                selectedData.forEach(entry => {
+                    tableRows += `
+                        <tr>
+                            <td>${entry.state}</td>
+                            <td>${entry.crop}</td>
+                            <td>${entry.actualData['KMS 2015-16']}</td>
+                            <td>${entry.actualData['KMS 2016-17']}</td>
+                            <td>${entry.actualData['KMS 2017-18']}</td>
+                            <td>${entry.actualData['KMS 2018-19']}</td>
+                            <td>${entry.predictedData}</td> <!-- Display predicted data -->
+                        </tr>
+                    `;
+                });
+                // Display the table rows
+                tableBody.innerHTML = tableRows;
+            } else {
+                // Display a message if data for the selected state and crop is not found
+                tableBody.innerHTML = `<tr><td colspan="7">Data not found for ${state} and ${crop}.</td></tr>`;
+            }
+
+            tableContainer.style.display = 'block';
+        });
+    </script>
+<br><br><br><br><br><br><br><br><br><br><br>
+ <!-- Footer Section -->
+    <footer>
+        <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+        <div class="social-icons">
+            <!-- Add social media icons and links here -->
+        </div>
+    </footer>
+</body>
+</html>
+</body>
+</html>
