@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Treatment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f7ff; /* Light blue background */
+        }
+
+        h1 {
+            text-align: center;
+            color: #004d80; /* Dark blue heading */
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+	label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+	select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+	button[type="submit"] {
+            background-color: #004d80;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+	button[type="submit"]:hover {
+            background-color: #003366;
+        }
+
+        #treatment-data {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+        }
+	
+	
+        header {
+            background-color: #004d80;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: #003366;
+        }
+
+        footer {
+            background-color: #004d80;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer-menu li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .footer-menu li a:hover {
+            color: #003366;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Agriculture Toolbox Logo">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="file:///C:/Users/pbhan/OneDrive/Desktop/shi/interface1.html">Home</a></li>
+                <li><a href="#">Crop Recommendation</a></li>
+                <li><a href="#">Crop Yield Prediction</a></li>
+                <li><a href="#">Weather Monitoring</a></li>
+                <li><a href="#">Pesticides & Fertilizers</a></li>
+                <li><a href="#">Marketing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <h1>Plant Disease Treatment</h1>
+            <form id="disease-treatment-form">
+                <label for="state">Select State:</label>
+                <select id="state" name="state">
+                    <!-- Add your state options here -->
+                    <option value="state1">State 1</option>
+                    <option value="state2">State 2</option>
+                    <!-- Add more state options as needed -->
+                </select>
+
+                <label for="city">Select City:</label>
+                <select id="city" name="city">
+                    <!-- Add your city options here -->
+                    <option value="city1">City 1</option>
+                    <option value="city2">City 2</option>
+                    <!-- Add more city options as needed -->
+                </select>
+
+                <label for="area">Select Area:</label>
+                <select id="area" name="area">
+                    <!-- Add your area options here -->
+                    <option value="area1">Area 1</option>
+                    <option value="area2">Area 2</option>
+                    <!-- Add more area options as needed -->
+                </select>
+
+                <label for="disease">Select Plant Disease:</label>
+                <select id="disease" name="disease">
+                    <!-- Add your plant disease options here -->
+                    <option value="disease1">Disease 1</option>
+                    <option value="disease2">Disease 2</option>
+                    <!-- Add more disease options as needed -->
+                </select>
+
+                <button type="submit">Get Treatment</button>
+            </form>
+
+            <div id="treatment-data">
+                <!-- Treatment data will be displayed here -->
+            </div>
+        </div>
+    </section>
+	<script>
+        // JavaScript code to fetch treatment data and display it
+        document.getElementById('disease-treatment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get selected values from the form
+            const selectedState = document.getElementById('state').value;
+            const selectedCity = document.getElementById('city').value;
+            const selectedArea = document.getElementById('area').value;
+            const selectedDisease = document.getElementById('disease').value;
+
+            // You can add logic here to fetch treatment data based on the selected values
+            // For demonstration purposes, we'll generate random treatment data
+            const treatmentData = `Treatment for ${selectedDisease} in ${selectedArea}, ${selectedCity}, ${selectedState}: 
+                                    Use Pesticide ABC`;
+
+            // Display treatment data
+            document.getElementById('treatment-data').innerHTML = treatmentData;
+        });
+    </script>
+
+    <footer>
+        <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+        <div class="social-icons">
+            <!-- Add your social media links and icons here -->
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

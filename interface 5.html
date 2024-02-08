@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Information</title>
+   <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f7ff; /* Light blue background */
+        }
+
+        header {
+            background-color: #004d80; /* Dark blue background */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold; /* Make the text bold for better readability */
+        }
+
+        form {
+            text-align: center; /* Center align the form */
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #004d80; /* Dark blue button */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #003366; /* Darker blue on hover */
+        }
+
+        footer {
+            background-color: #004d80; /* Dark blue footer */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer-menu li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+   
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Agriculture Toolbox Logo" style="width: 150px; height: auto;">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Crop Recommendation</a></li>
+                <li><a href="#">Crop Yield Prediction</a></li>
+                <li><a href="#">Weather Monitoring</a></li>
+                <li><a href="#">Pesticides & Fertilizers</a></li>
+                <li><a href="#">Marketing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Weather Information Content -->
+    <section>
+        <h1>Weather Information</h1>
+        <form id="weather-form">
+            <label for="state">Select State:</label>
+            <select id="state" name="state">
+                <!-- Add your state options here -->
+                <option value="state1">State 1</option>
+                <option value="state2">State 2</option>
+                <!-- Add more state options as needed -->
+            </select>
+
+            <label for="district">Select District:</label>
+            <select id="district" name="district">
+                <!-- Add your district options here -->
+                <option value="district1">District 1</option>
+                <option value="district2">District 2</option>
+                <!-- Add more district options as needed -->
+            </select>
+
+            <label for="mandal">Select Mandal:</label>
+            <select id="mandal" name="mandal">
+                <!-- Add your mandal options here -->
+                <option value="mandal1">Mandal 1</option>
+                <option value="mandal2">Mandal 2</option>
+                <!-- Add more mandal options as needed -->
+            </select>
+
+           <label for="area">Select Area:</label>
+<select id="area" name="area">
+    <!-- Add your area options here -->
+    <option value="area1">Area 1</option>
+    <option value="area2">Area 2</option>
+    <!-- Add more area options as needed -->
+</select>
+<button type="submit">Get Weather</button>
+
+        </form>
+
+        <div id="weather-data">
+            <!-- Weather data will be displayed here -->
+        </div>
+    </section>
+  <!-- ... (your HTML code) ... -->
+
+<!-- ... (your HTML code) ... -->
+
+<script>
+    // JavaScript code to fetch weather data and show a warning if wind speed is high
+    document.getElementById('weather-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get selected values from the form
+        const selectedState = document.getElementById('state').value;
+        const selectedDistrict = document.getElementById('district').value;
+        const selectedMandal = document.getElementById('mandal').value;
+        const selectedArea = document.getElementById('area').value;
+
+        // Generate random weather data (for demonstration purposes)
+        const temperature = (Math.random() * 30 + 10).toFixed(2) + '°C'; // Random temperature between 10°C and 40°C
+        const windSpeed = (Math.random() * 20).toFixed(2); // Random wind speed between 0 km/h and 20 km/h
+        const humidity = (Math.random() * 50 + 30).toFixed(2) + '%'; // Random humidity between 30% and 80%
+        const rainfall = (Math.random() * 10).toFixed(2) + ' mm'; // Random rainfall between 0 mm and 10 mm
+
+        // Display weather data
+        const weatherDataHtml = `
+            <h2>Weather Conditions for ${selectedArea}, ${selectedMandal}, ${selectedDistrict}, ${selectedState}</h2>
+            <p>Temperature: ${temperature}</p>
+            <p>Wind Speed: ${windSpeed} km/h</p>
+            <p>Humidity: ${humidity}</p>
+            <p>Rainfall: ${rainfall}</p>
+        `;
+
+        // Check if wind speed is greater than 10 km/h and display a warning
+        if (parseFloat(windSpeed) > 10) {
+            alert(`Warning: In your area, wind speed is high (${windSpeed} km/h). Take care of your crops!`);
+        }
+
+        document.getElementById('weather-data').innerHTML = weatherDataHtml;
+    });
+</script>
+
+
+
+
+    <!-- Footer Section -->
+    <footer>
+        <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+        <div class="social-icons">
+            <!-- Add social media icons and links here -->
+        </div>
+    </footer>
+</body>
+</html>
